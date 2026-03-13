@@ -35,9 +35,7 @@
         }
 
         /* Nav */
-        nav {
-            padding: 24px 0;
-        }
+        nav { padding: 24px 0; }
 
         .nav-inner {
             display: flex;
@@ -135,9 +133,7 @@
             transition: border-color 0.2s;
         }
 
-        .signup-inline:focus-within {
-            border-color: var(--fg);
-        }
+        .signup-inline:focus-within { border-color: var(--fg); }
 
         .signup-inline input {
             flex: 1;
@@ -150,26 +146,14 @@
             outline: none;
         }
 
-        .signup-inline input::placeholder {
+        .signup-inline input::placeholder { color: var(--light); }
+
+        .micro-copy {
+            font-size: 12px;
             color: var(--light);
-        }
-
-        .signup-inline button {
-            padding: 14px 20px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.2s;
-        }
-
-        .signup-inline button:hover { opacity: 0.6; }
-
-        .signup-inline button svg {
-            width: 20px;
-            height: 20px;
+            max-width: 440px;
+            margin: 12px auto 0;
+            text-align: center;
         }
 
         .btn-circle {
@@ -182,7 +166,11 @@
             align-items: center;
             justify-content: center;
             margin-right: 6px;
+            cursor: pointer;
+            transition: opacity 0.2s;
         }
+
+        .btn-circle:hover { opacity: 0.7; }
 
         .btn-circle svg {
             width: 14px;
@@ -233,9 +221,7 @@
         }
 
         /* How it works */
-        .section {
-            padding: 80px 0;
-        }
+        .section { padding: 80px 0; }
 
         .section-label {
             font-size: 11px;
@@ -306,6 +292,17 @@
             line-height: 1.9;
             overflow-x: auto;
             margin-top: 48px;
+        }
+
+        .code-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--light);
+            margin-bottom: 16px;
+            display: block;
         }
 
         .code-comment { color: var(--light); }
@@ -380,9 +377,7 @@
             text-align: center;
         }
 
-        .bottom-cta h2 {
-            margin-bottom: 16px;
-        }
+        .bottom-cta h2 { margin-bottom: 16px; }
 
         .bottom-cta p {
             color: var(--muted);
@@ -436,9 +431,7 @@
 
         .field input:focus,
         .field textarea:focus,
-        .field select:focus {
-            border-color: var(--fg);
-        }
+        .field select:focus { border-color: var(--fg); }
 
         .field textarea {
             resize: vertical;
@@ -448,6 +441,64 @@
         .field select {
             appearance: none;
             cursor: pointer;
+        }
+
+        /* Feature poll */
+        .poll-section {
+            margin: 20px 0 16px;
+            text-align: left;
+        }
+
+        .poll-section label.poll-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--light);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .poll-options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .poll-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .poll-option input[type="radio"] {
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            cursor: pointer;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .poll-option input[type="radio"]:checked {
+            border-color: var(--fg);
+        }
+
+        .poll-option input[type="radio"]:checked::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--fg);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         .submit-btn {
@@ -493,6 +544,53 @@
             font-size: 14px;
             color: var(--muted);
         }
+
+        /* FAQ */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .faq-item:last-child { border-bottom: none; }
+
+        .faq-q {
+            padding: 20px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: background 0.15s;
+        }
+
+        .faq-q:hover { background: var(--code-bg); }
+
+        .faq-q span {
+            transition: transform 0.2s;
+            font-size: 18px;
+            color: var(--light);
+        }
+
+        .faq-a {
+            padding: 0 24px 20px;
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.7;
+            display: none;
+        }
+
+        .faq-item.open .faq-a { display: block; }
+        .faq-item.open .faq-q span { transform: rotate(45deg); }
 
         /* Footer */
         footer {
@@ -551,21 +649,23 @@
 
 <div class="container">
 
+    <!-- HERO -->
     <section class="hero">
         <div class="hero-icon">
             <span></span><span></span>
             <span></span><span></span>
         </div>
         <h1>Verify Trust.<br>Not Promises.</h1>
-        <p class="hero-sub">The reputation layer for AI agents. Register, submit attestations of completed work, and build a verifiable track record across the agentic economy.</p>
+        <p class="hero-sub">The reputation layer for AI agents. Register your agent, submit attestations of completed work, and build a verifiable track record across the agentic economy.</p>
 
         <div id="hero-form">
             <form id="quick-form" class="signup-inline">
-                <input type="email" id="quick-email" placeholder="Enter your email to join..." required>
+                <input type="email" id="quick-email" placeholder="Your email to reserve a Sigil ID..." required>
                 <div class="btn-circle" onclick="document.getElementById('quick-form').requestSubmit()">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
                 </div>
             </form>
+            <p class="micro-copy">Your email will be used to manage your agent's Sigil identity and receive launch updates.</p>
         </div>
 
         <div id="hero-success" class="success-inline">
@@ -577,6 +677,7 @@
 
     <div class="divider"></div>
 
+    <!-- HOW IT WORKS -->
     <section class="section">
         <div class="section-label">How it works</div>
         <h2>Three steps to a trusted agent.</h2>
@@ -584,28 +685,29 @@
             <div class="step">
                 <div class="step-num">01</div>
                 <div>
-                    <h3>Register</h3>
-                    <p>Your agent receives a unique <code>protocol_id</code> — a permanent, portable identity across frameworks and platforms.</p>
+                    <h3>You register your agent</h3>
+                    <p>Your agent receives a unique <code>protocol_id</code> -- its permanent, portable identity across frameworks and platforms, managed securely by you, its human owner.</p>
                 </div>
             </div>
             <div class="step">
                 <div class="step-num">02</div>
                 <div>
-                    <h3>Attest</h3>
-                    <p>After each completed task, submit an attestation with a <code>proof_hash</code> — a cryptographic fingerprint of the work output. Verifiable, not just self-reported.</p>
+                    <h3>Your agent attests to its work</h3>
+                    <p>After each completed task, your agent submits an attestation with a <code>proof_hash</code> -- a cryptographic fingerprint of its work output. Verifiable by you and the protocol, not just self-reported.</p>
                 </div>
             </div>
             <div class="step">
                 <div class="step-num">03</div>
                 <div>
-                    <h3>Build reputation</h3>
-                    <p>Verified attestations increase your agent's trust score. Other agents, platforms, and humans check this score before interacting.</p>
+                    <h3>Your agent builds trust and reputation</h3>
+                    <p>Verified attestations increase your agent's trust score. Other agents, platforms, and humans will check this score before interacting, empowering your agent to earn more critical tasks and collaborations.</p>
                 </div>
             </div>
         </div>
 
         <div class="code-block">
-            <span class="code-comment">// Register → get a protocol_id</span><br>
+            <span class="code-label">API commands your agent will execute once the protocol is live</span>
+            <span class="code-comment">// Register your agent, get a protocol_id</span><br>
             <span class="code-key">POST</span> <span class="code-string">/api/agents/register</span><br><br>
             <span class="code-comment">// Submit proof of completed work</span><br>
             <span class="code-key">POST</span> <span class="code-string">/api/agents/{protocol_id}/attest</span><br><br>
@@ -616,6 +718,7 @@
 
     <div class="divider"></div>
 
+    <!-- THE PROBLEM -->
     <section class="section">
         <div class="section-label">The problem</div>
         <h2>Agents have no persistent identity.</h2>
@@ -641,6 +744,7 @@
 
     <div class="divider"></div>
 
+    <!-- HOW WE'RE DIFFERENT -->
     <section class="section">
         <div class="section-label">How we're different</div>
         <h2>Simple API, not blockchain.</h2>
@@ -684,10 +788,11 @@
 
     <div class="divider"></div>
 
+    <!-- WAITLIST FORM -->
     <section class="bottom-cta" id="register">
         <div class="section-label">Early access</div>
-        <h2>Register your agent.</h2>
-        <p>Get a protocol_id reserved. We'll notify you when the registry goes live.</p>
+        <h2>Join the Waitlist: Reserve Your Agent's Sigil ID.</h2>
+        <p>Reserve a unique protocol_id for your agent. We'll notify you when Sigil launches and your agent can begin building its verifiable reputation.</p>
 
         <div id="full-form-container">
             <form id="agent-form" class="full-form">
@@ -697,23 +802,27 @@
                         <input type="text" id="agent-name" placeholder="e.g. ResearchBot" required>
                     </div>
                     <div class="field">
-                        <label>Your name</label>
+                        <label>Your name (human owner)</label>
                         <input type="text" id="operator-name" placeholder="Operator / builder" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="field">
-                        <label>Email</label>
+                        <label>Your email (for updates & management)</label>
                         <input type="email" id="operator-email" placeholder="you@example.com" required>
                     </div>
                     <div class="field">
-                        <label>Framework</label>
+                        <label>Agent framework</label>
                         <select id="agent-framework">
                             <option value="">Select</option>
                             <option value="langchain">LangChain</option>
                             <option value="crewai">CrewAI</option>
                             <option value="autogpt">AutoGPT</option>
-                            <option value="n8n">n8n</option>
+                            <option value="openclaw">OpenClaw</option>
+                            <option value="cognosys">Cognosys</option>
+                            <option value="babyagi">BabyAGI</option>
+                            <option value="superagi">SuperAGI</option>
+                            <option value="gpt-engineer">GPT Engineer</option>
                             <option value="mcp">MCP-based</option>
                             <option value="custom">Custom / Other</option>
                         </select>
@@ -722,23 +831,102 @@
                 <div class="form-row">
                     <div class="field full">
                         <label>What does your agent do?</label>
-                        <textarea id="agent-description" placeholder="Brief description of capabilities..." required></textarea>
+                        <textarea id="agent-description" placeholder="Brief description of your agent's capabilities..." required></textarea>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="field full">
-                        <button type="submit" class="submit-btn">Register & Reserve protocol_id</button>
+                        <label>What problem is your agent solving?</label>
+                        <textarea id="agent-problem" placeholder="What kind of impact does your agent aim to make?"></textarea>
+                    </div>
+                </div>
+
+                <!-- Feature Poll -->
+                <div class="poll-section">
+                    <label class="poll-label">Which aspect of agent trust is most critical to your agent's operations?</label>
+                    <div class="poll-options">
+                        <label class="poll-option">
+                            <input type="radio" name="trust-priority" value="verifiable_task_completion">
+                            Verifiable task completion
+                        </label>
+                        <label class="poll-option">
+                            <input type="radio" name="trust-priority" value="accountable_recommendations">
+                            Accountable recommendations
+                        </label>
+                        <label class="poll-option">
+                            <input type="radio" name="trust-priority" value="portable_reputation_score">
+                            Portable reputation score
+                        </label>
+                        <label class="poll-option">
+                            <input type="radio" name="trust-priority" value="data_integrity_audits">
+                            Data integrity audits
+                        </label>
+                        <label class="poll-option">
+                            <input type="radio" name="trust-priority" value="context_consistency">
+                            Context consistency
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="field full">
+                        <button type="submit" class="submit-btn">Join Waitlist & Reserve Agent ID</button>
                     </div>
                 </div>
             </form>
-            <p class="form-footnote">Free during early access.</p>
+            <p class="form-footnote">Free during early access. We'll email you when your agent can start building reputation.</p>
         </div>
 
         <div id="full-success" class="success-full">
             <h3>Agent registered.</h3>
-            <p>Your protocol_id has been reserved:</p>
+            <p>Your agent's protocol_id has been reserved:</p>
             <div class="protocol-display" id="full-protocol-id" style="margin: 16px 0;"></div>
             <p class="success-note">We'll email you when the API is live and your agent can start submitting attestations.</p>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- FAQ -->
+    <section class="section">
+        <div class="section-label">Frequently asked questions</div>
+        <h2>Common questions.</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                    What is a protocol_id?
+                    <span>+</span>
+                </div>
+                <div class="faq-a">A protocol_id is a unique, permanent identifier assigned to your agent when you register it on Sigil. Think of it as a social security number for your AI agent -- it travels with your agent across platforms, frameworks, and interactions, carrying its trust history everywhere it goes.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                    How does my agent use Sigil?
+                    <span>+</span>
+                </div>
+                <div class="faq-a">Once the protocol launches, your agent will use simple REST API calls (or an MCP server) to submit attestations after completing tasks. Each attestation includes a proof_hash -- a cryptographic fingerprint of the work -- making claims verifiable, not just self-reported. Over time, verified attestations build your agent's trust score.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                    How do I manage my agent's account?
+                    <span>+</span>
+                </div>
+                <div class="faq-a">As the human owner, your email is tied to your agent's protocol_id. You'll have access to a dashboard where you can view attestations, verify claims, and manage your agent's profile. You maintain full control over your agent's Sigil identity.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                    Is this blockchain-based?
+                    <span>+</span>
+                </div>
+                <div class="faq-a">No. Sigil uses a simple API-first approach -- no smart contracts, no gas fees, no crypto wallets. You integrate with a REST API and an optional MCP server. Setup takes one API call, not a Solidity course.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                    Is there a cost?
+                    <span>+</span>
+                </div>
+                <div class="faq-a">Sigil is free during early access. We'll introduce pricing tiers as the protocol matures, but early registrants will always have access to a generous free tier. We want agents building reputation from day one, not gated by cost.</div>
+            </div>
         </div>
     </section>
 
@@ -752,7 +940,7 @@
                 <span></span><span></span>
             </div>
         </a>
-        <p>Sigil — the trust layer for the agentic economy.</p>
+        <p>Sigil -- the trust layer for the agentic economy.</p>
     </div>
 </footer>
 
@@ -789,12 +977,16 @@
         btn.textContent = 'Registering...';
         btn.disabled = true;
 
+        const trustPriority = document.querySelector('input[name="trust-priority"]:checked');
+
         const data = {
             agent_name: document.getElementById('agent-name').value,
             operator_name: document.getElementById('operator-name').value,
             email: document.getElementById('operator-email').value,
             framework: document.getElementById('agent-framework').value,
             description: document.getElementById('agent-description').value,
+            agent_problem: document.getElementById('agent-problem').value,
+            trust_priority: trustPriority ? trustPriority.value : null,
             type: 'full'
         };
 
@@ -804,7 +996,7 @@
             document.getElementById('full-protocol-id').textContent = result.protocol_id;
             document.getElementById('full-success').classList.add('show');
         } catch (err) {
-            btn.textContent = 'Register & Reserve protocol_id';
+            btn.textContent = 'Join Waitlist & Reserve Agent ID';
             btn.disabled = false;
             alert('Something went wrong. Please try again.');
         }

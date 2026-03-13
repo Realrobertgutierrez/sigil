@@ -16,7 +16,7 @@ export default async function handler(req, res) {
 
   try {
     const sql = neon(process.env.DATABASE_URL);
-    const { agent_name, operator_name, email, framework, description, type } = req.body;
+    const { agent_name, operator_name, email, framework, description, agent_problem, trust_priority, type } = req.body;
 
     if (!email) {
       return res.status(400).json({ error: 'Email is required' });
@@ -27,8 +27,8 @@ export default async function handler(req, res) {
     const protocol_id = `sigil_${id}`;
 
     await sql`
-      INSERT INTO waitlist (protocol_id, agent_name, operator_name, email, framework, description, type)
-      VALUES (${protocol_id}, ${agent_name || null}, ${operator_name || null}, ${email}, ${framework || null}, ${description || null}, ${type || 'quick'})
+      INSERT INTO waitlist (protocol_id, agent_name, operator_name, email, framework, description, agent_problem, trust_priority, type)
+      VALUES (${protocol_id}, ${agent_name || null}, ${operator_name || null}, ${email}, ${framework || null}, ${description || null}, ${agent_problem || null}, ${trust_priority || null}, ${type || 'quick'})
     `;
 
     return res.status(200).json({ 
